@@ -9,14 +9,14 @@ tests_root = '{}/tests/'.format(os.getcwd())
 tests = []
 
 if not os.path.exists(tests_root):
-    sys.exit(0) # exit if path not exists
+    sys.exit(0)  # exit if path not exists
 
 for f in os.listdir(tests_root):
     if re.match('^test_.*.py$', f):
-        sys.path.append(tests_root) # add tests dir to path
+        sys.path.append(tests_root)  # add tests dir to path
         tests.append(__import__(f[:-2]))
 
 for test in tests:
     if getattr(test, 'bdd', None) is not None:
         test.bdd.main()
-        break # exit loop to prevent duplicate test runs
+        break  # exit loop to prevent duplicate test runs
