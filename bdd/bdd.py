@@ -16,7 +16,8 @@ _bdd_context = collections.OrderedDict()
 
 
 class Expect(object):
-    """The except, BDD style assertion handler"""
+    """The expect, BDD style assertion handler"""
+    
     pdb = False
 
     def __init__(self, expr):
